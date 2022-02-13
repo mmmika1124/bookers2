@@ -1,7 +1,17 @@
-<body>
-  <main>
     <p id="notice"></p>
     <div class="container px-5 px-sm-0">
+      <div class="text-danger">
+        <% if @book.errors.any? %>
+          <h3>
+            <%= @book.errors.count %>errors prohibited this obj from being saved:
+          </h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       <div class="row">
         <div class="col-md-3">
           <%= render 'layouts/info', user: current_user, book: @book %>
@@ -39,6 +49,4 @@
           </table>
         </div>
       </div>
-      </div>
-    </main>
-  </body>
+    </div>
