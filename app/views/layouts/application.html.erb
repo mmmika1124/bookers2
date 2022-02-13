@@ -75,6 +75,11 @@
     </header>
 
     <main>
+      <% flash.each do |key, value| %>
+        <p class="alert alert-<%= key %> text-success">
+          <%= value %>
+        </p>
+      <% end %>
       <%= yield %>
     </main>
 
